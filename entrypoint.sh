@@ -27,16 +27,11 @@ update_function_layers(){
 	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}"
 }
 
-install_tesseract(){
-	source build_tesseract.sh
-}
-
 deploy_lambda_function(){
 	install_zip_dependencies
 	publish_dependencies_as_layer
 	publish_function_code
 	update_function_layers
-	install_tesseract
 }
 
 deploy_lambda_function
