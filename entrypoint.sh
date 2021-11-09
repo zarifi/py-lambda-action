@@ -19,12 +19,14 @@ publish_dependencies_as_layer(){
 publish_function_code(){
 	echo "Deploying the code itself..."
 	zip -r code.zip . -x \*.git\*
-	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://code.zip
+	#aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://code.zip
+	aws s3api put-object --bucket my-web-crawler --key code.zip --body fileb://code.zip
 }
 
 update_function_layers(){
 	echo "Using the layer in the function..."
 	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}"
+	
 }
 
 deploy_lambda_function(){
