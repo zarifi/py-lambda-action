@@ -41,7 +41,7 @@ download_chrome_drivers(){
 	unzip chromedriver.zip -d .
 	
 	# Get Headless-chrome
-	curl -SL https://github.com/adieuadieu/serverless-chrome/releases/download/v1.0.0-57/stable-headless-chromium-86.0.4240.111-amazonlinux-2017-03.zip > headless-chromium.zip
+	curl -SL https://github.com/adieuadieu/serverless-chrome/releases/download/v1.0.0-57/stable-headless-chromium-amazonlinux-2.zip > headless-chromium.zip
 	unzip headless-chromium.zip -d .
 	
 	# Clean
