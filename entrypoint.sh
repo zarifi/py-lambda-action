@@ -4,7 +4,6 @@ set -e
 install_zip_dependencies(){
 	echo "Installing and zipping dependencies..."
 	mkdir python
-	cp -r bin python/.
 	pip install --target=python -r "${INPUT_REQUIREMENTS_TXT}"
 	zip -r dependencies.zip ./python
 }
@@ -29,22 +28,21 @@ update_function_layers(){
 }
 
 deploy_lambda_function(){
-	download_chrome_drivers
 	install_zip_dependencies
+	download_chrome_drivers
 	publish_dependencies_as_layer
 	publish_function_code
 	update_function_layers
 }
 
 download_chrome_drivers(){
-	mkdir -p bin/
 	# Get chromedriver
 	curl -SL https://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip > chromedriver.zip
-	unzip chromedriver.zip -d bin/
+	unzip chromedriver.zip -d python/
 
 	# Get Headless-chrome
 	curl -SL https://github.com/adieuadieu/serverless-chrome/releases/download/v1.0.0-29/stable-headless-chromium-amazonlinux-2017-03.zip > headless-chromium.zip
-	unzip headless-chromium.zip -d bin/
+	unzip headless-chromium.zip -d python/
 	
 	# Clean
 	rm headless-chromium.zip chromedriver.zip
