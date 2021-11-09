@@ -37,7 +37,7 @@ deploy_lambda_function(){
 
 download_chrome_drivers(){
 	# Get chromedriver
-	curl -SL https://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip > chromedriver.zip
+	curl -SL https://chromedriver.storage.googleapis.com/2.43/chromedriver_linux64.zip > chromedriver.zip
 	unzip chromedriver.zip -d .
 
 	# Get Headless-chrome
