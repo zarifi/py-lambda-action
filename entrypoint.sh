@@ -37,11 +37,11 @@ deploy_lambda_function(){
 
 download_chrome_drivers(){
 	# Get chromedriver
-	curl -SL https://chromedriver.storage.googleapis.com/2.43/chromedriver_linux64.zip > chromedriver.zip
+	curl -SL https://chromedriver.storage.googleapis.com/96.0.4664.35/chromedriver_linux64.zip > chromedriver.zip
 	unzip chromedriver.zip -d .
-
+	
 	# Get Headless-chrome
-	curl -SL https://github.com/adieuadieu/serverless-chrome/releases/download/v1.0.0-55/stable-headless-chromium-amazonlinux-2017-03.zip > headless-chromium.zip
+	curl -SL https://github.com/adieuadieu/serverless-chrome/releases/download/v1.0.0-57/stable-headless-chromium-86.0.4240.111-amazonlinux-2017-03.zip > headless-chromium.zip
 	unzip headless-chromium.zip -d .
 	
 	# Clean
