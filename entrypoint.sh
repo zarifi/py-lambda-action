@@ -20,7 +20,7 @@ publish_function_code(){
 	echo "Deploying the code itself..."
 	zip -r code.zip . -x \*.git\*
 	aws s3api put-object --bucket my-web-crawler --key code.zip --body code.zip
-	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --s3-bucket my-web-crawler
+	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --s3-bucket my-web-crawler --s3-key code.zip
 }
 
 update_function_layers(){
