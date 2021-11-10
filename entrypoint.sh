@@ -32,7 +32,7 @@ update_function_layers(){
 
 deploy_lambda_function(){
 	install_zip_dependencies
-	download_chrome_drivers
+	# download_chrome_drivers
 	publish_dependencies_as_layer
 	publish_function_code
 	update_function_layers
